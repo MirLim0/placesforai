@@ -11,7 +11,6 @@ interface HighlightTextProps {
 
 export function HighlightText({
   children,
-  color = "#ffe066",
   startDelay = 0,
 }: HighlightTextProps) {
   const textRef = useRef<HTMLSpanElement>(null);
@@ -31,7 +30,7 @@ export function HighlightText({
       </span>
       {width > 0 && (
         <motion.svg
-          className="absolute left-[-4px] bottom-1 z-0 pointer-events-none"
+          className="absolute left-[-4px] bottom-1 z-0 pointer-events-none text-primary"
           width={width + pad * 2}
           height={20}
           viewBox={`0 0 ${width + pad * 2} 20`}
@@ -45,7 +44,7 @@ export function HighlightText({
               Q${(width + pad * 2) * 0.75},20 ${width + pad * 2},15
             `}
             fill="none"
-            stroke={color}
+            stroke="currentColor"
             strokeWidth="12"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -53,7 +52,7 @@ export function HighlightText({
               hidden: { pathLength: 0, opacity: 0 },
               visible: {
                 pathLength: 1,
-                opacity: 0.6,
+                opacity: 1,
                 transition: {
                   duration: 1.2,
                   delay: startDelay / 1000,
